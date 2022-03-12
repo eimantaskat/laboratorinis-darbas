@@ -36,3 +36,5 @@
 .vscode
 
 test*.cpp
+
+!results.txt

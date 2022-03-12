@@ -1,32 +1,26 @@
 #include "functions.h"
 
 int main() {
-    // input data
-    string select;
-    cout << "Ka norite daryti?\n1 - ivesti duomeis\n2 - sugeneruoti duomenis\n3 - surusioti studentus\n";
+    auto start = high_resolution_clock::now();
 
-    while (true) {
-        cin >> select;
-        if(!check_select1(select)) {
-            cout << "Iveskite 1, 2 arba 3" << endl;
-        } else {
-            int s = stoi(select);
+    int n = 1000, nd = 10;
+    cout << n << endl;
+    auto start1 = high_resolution_clock::now();
+    generate(n, nd);
+    auto stop1 = high_resolution_clock::now();
+    auto duration1 = duration_cast<nanoseconds>(stop1 - start1);
+    cout << "Failo kurimas uztruko: " << duration1.count() * 1e-9 << "s\n";
 
-            switch (s) {
-                case 1:
-                    data_input();
-                    break;
-                
-                case 2: {
-                    data_generation();
-                    break;
-                }
-                case 3: {
-                    student_sorting();
-                    break;
-                }
-            }
-            break;
-        }
-    }
+    auto start2 = high_resolution_clock::now();
+    vector<data> arr;
+    read_data(arr, "test_output.txt");
+    auto stop2 = high_resolution_clock::now();
+    auto duration2 = duration_cast<nanoseconds>(stop2 - start2);
+    cout << "Duoemnu nuskaitymas is failo uztruko: " << duration2.count() * 1e-9 << "s\n";
+
+    split(arr, &average);
+
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(stop - start);
+    cout << "Programos veikimo laikas: " << duration.count() * 1e-9 << "s\n";
 }

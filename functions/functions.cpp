@@ -35,7 +35,7 @@ void generate(int n, int nd) {
     std::uniform_int_distribution<int> dist(0, 10);
 
     // open output file
-    std::ofstream file(std::to_string(n) + "st_" + std::to_string(nd) + "nd.txt");
+    std::ofstream file("test_output.txt");
 
     // write header line
     file << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
@@ -66,15 +66,23 @@ void generate(int n, int nd) {
 void split(vector<data> arr, double (*func)(vector<int>)) {
     // calculate final grade and split students
     vector<int> vargsiukai, kietiakai;
+    auto start = high_resolution_clock::now();        
     for(int i = 0; i < arr.size(); i++) {
         if (0.4 * func(arr[i].grades) + 0.6 * arr[i].exam < 5)
             vargsiukai.push_back(i);
         else
             kietiakai.push_back(i);
     }
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(stop - start);
+    cout << "Studentu rusiavimas i 2 kategorijas uztruko: " << duration.count()  * 1e-9 << "s\n";
     
+    start = high_resolution_clock::now(); 
     write_students("kietiakai.txt", arr, kietiakai);
     write_students("vargsiukai.txt", arr, kietiakai);
+    stop = high_resolution_clock::now();
+    duration = duration_cast<nanoseconds>(stop - start);
+    cout << "Surusiotu studentu isvedimas i 2 failus uztruko: " << duration.count()  * 1e-9 << "s\n";
 
-    cout << "Studentai surusiuoti i falus kietiakai.txt ir vargsiukai.txt\n";
+    // cout << "Studentai surusiuoti i falus kietiakai.txt ir vargsiukai.txt\n";
 }

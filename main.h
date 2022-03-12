@@ -23,6 +23,9 @@ using std::accumulate;
 using std::setprecision;
 using std::vector;
 
+using namespace std::chrono;
+using hrClock = std::chrono::high_resolution_clock;
+
 struct data {
     string name, surname;
     int exam;
