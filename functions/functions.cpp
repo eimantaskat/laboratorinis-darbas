@@ -56,7 +56,7 @@ void generate(int n, int nd) {
         // every 1000 students copy data from stringstream to file
         if (i % 1000 == 0) {
             file << line.rdbuf();
-            line.clear();
+            line.str(string());
         }
     }
     file << line.rdbuf();
@@ -73,13 +73,14 @@ void split(vector<data> arr, double (*func)(vector<int>)) {
         else
             kietiakai.push_back(i);
     }
+    
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(stop - start);
     cout << "Studentu rusiavimas i 2 kategorijas uztruko: " << duration.count()  * 1e-9 << "s\n";
     
     start = high_resolution_clock::now(); 
     write_students("kietiakai.txt", arr, kietiakai);
-    write_students("vargsiukai.txt", arr, kietiakai);
+    write_students("vargsiukai.txt", arr, vargsiukai);
     stop = high_resolution_clock::now();
     duration = duration_cast<nanoseconds>(stop - start);
     cout << "Surusiotu studentu isvedimas i 2 failus uztruko: " << duration.count()  * 1e-9 << "s\n";

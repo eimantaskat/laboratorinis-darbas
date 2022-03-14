@@ -1,22 +1,22 @@
 #include "functions.h"
 
 int main() {
-    auto start = high_resolution_clock::now();
-
-    int n = 1000, nd = 10;
+    int n = 10000000, nd = 10;
     cout << n << endl;
-    auto start1 = high_resolution_clock::now();
-    generate(n, nd);
-    auto stop1 = high_resolution_clock::now();
-    auto duration1 = duration_cast<nanoseconds>(stop1 - start1);
-    cout << "Failo kurimas uztruko: " << duration1.count() * 1e-9 << "s\n";
+    // auto start1 = high_resolution_clock::now();
+    // generate(n, nd);
+    // auto stop1 = high_resolution_clock::now();
+    // auto duration1 = duration_cast<nanoseconds>(stop1 - start1);
+    // cout << "Failo kurimas uztruko: " << duration1.count() * 1e-9 << "s\n";
+
+    auto start = high_resolution_clock::now();
 
     auto start2 = high_resolution_clock::now();
     vector<data> arr;
-    read_data(arr, "test_output.txt");
+    read_data1(arr, "test_output.txt");
     auto stop2 = high_resolution_clock::now();
     auto duration2 = duration_cast<nanoseconds>(stop2 - start2);
-    cout << "Duoemnu nuskaitymas is failo uztruko: " << duration2.count() * 1e-9 << "s\n";
+    cout << "Duomenu nuskaitymas is failo uztruko: " << duration2.count() * 1e-9 << "s\n";
 
     split(arr, &average);
 

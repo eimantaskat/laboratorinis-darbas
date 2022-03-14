@@ -1,34 +1,34 @@
 1000
-Failo kurimas uztruko: 0.01898s
-Duoemnu nuskaitymas is failo uztruko: 0.013995s
-Studentu rusiavimas i 2 kategorijas uztruko: 0s
-Surusiotu studentu isvedimas i 2 failus uztruko: 0.011967s
-Programos veikimo laikas: 0.049866s
+Failo kurimas uztruko: 0.0044582s
+Duomenu nuskaitymas is failo uztruko: 0.0163945s
+Studentu rusiavimas i 2 kategorijas uztruko: 9.53e-05s
+Surusiotu studentu isvedimas i 2 failus uztruko: 0.008008s
+Programos veikimo laikas: 0.0269248s
 
 10000
-Failo kurimas uztruko: 0.103756s
-Duoemnu nuskaitymas is failo uztruko: 0.089185s
-Studentu rusiavimas i 2 kategorijas uztruko: 0.000984s
-Surusiotu studentu isvedimas i 2 failus uztruko: 0.033913s
-Programos veikimo laikas: 0.235321s
+Failo kurimas uztruko: 0.0450716s
+Duomenu nuskaitymas is failo uztruko: 0.0588467s
+Studentu rusiavimas i 2 kategorijas uztruko: 0.0009997s
+Surusiotu studentu isvedimas i 2 failus uztruko: 0.0562167s
+Programos veikimo laikas: 0.120584s
 
 100000
-Failo kurimas uztruko: 1.01728s
-Duoemnu nuskaitymas is failo uztruko: 0.836744s
-Studentu rusiavimas i 2 kategorijas uztruko: 0.010006s
-Surusiotu studentu isvedimas i 2 failus uztruko: 0.323137s
-Programos veikimo laikas: 2.20845s
+Failo kurimas uztruko: 0.459894s
+Duomenu nuskaitymas is failo uztruko: 0.657257s
+Studentu rusiavimas i 2 kategorijas uztruko: 0.0136894s
+Surusiotu studentu isvedimas i 2 failus uztruko: 0.620062s
+Programos veikimo laikas: 1.3167s
 
 1000000
-Failo kurimas uztruko: 10.0511s
-Duoemnu nuskaitymas is failo uztruko: 7.81611s
-Studentu rusiavimas i 2 kategorijas uztruko: 0.102726s
-Surusiotu studentu isvedimas i 2 failus uztruko: 3.29519s
-Programos veikimo laikas: 21.4242s
+Failo kurimas uztruko: 4.07149s
+Duomenu nuskaitymas is failo uztruko: 5.51457s
+Studentu rusiavimas i 2 kategorijas uztruko: 0.0934117s
+Surusiotu studentu isvedimas i 2 failus uztruko: 4.57925s
+Programos veikimo laikas: 10.3437s
 
 10000000
-Failo kurimas uztruko: 100.792s
-Duoemnu nuskaitymas is failo uztruko: 45.3273s
-Studentu rusiavimas i 2 kategorijas uztruko: 0.581448s
-Surusiotu studentu isvedimas i 2 failus uztruko: 5.24896s
-Programos veikimo laikas: 152.8s
+Failo kurimas uztruko: 39.8864s
+Duomenu nuskaitymas is failo uztruko: 52.8285s
+Studentu rusiavimas i 2 kategorijas uztruko: 0.98868s
+Surusiotu studentu isvedimas i 2 failus uztruko: 42.3614s
+Programos veikimo laikas: 97.6938s

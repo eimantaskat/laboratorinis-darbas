@@ -16,6 +16,7 @@ void print(vector<data> arr, int s);
 void generate(int, int);
 void split(vector<data> arr, double (*func)(vector<int>));
 void read_data(vector<data>& arr, string filename);
+void read_data1(vector<data>& arr, string filename);
 bool compareByName(const data&, const data&);
 bool compareBySurname(const data&, const data&);
 bool is_int(string);
