@@ -42,7 +42,7 @@ void generate(int n, int nd) {
     for (int i = 0; i < nd; i++) {
         file << std::right << setw(5) << "ND" + std::to_string(i+1);
     }
-    file << setw(5) << "Egz." << endl;
+    file << setw(5) << "Egz." << "\n";
 
     std::stringstream line;
     for (int i = 0; i < n; i++) {
@@ -52,7 +52,7 @@ void generate(int n, int nd) {
             // write grades to stringstream
             line << std::right << setw(5) << dist(mt);
         if (i + 1 != n)
-            line << endl;
+            line << "\n";
         // every 1000 students copy data from stringstream to file
         if (i % 1000 == 0) {
             file << line.rdbuf();
@@ -76,14 +76,14 @@ void split(vector<data> arr, double (*func)(vector<int>)) {
     
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(stop - start);
-    cout << "Studentu rusiavimas i 2 kategorijas uztruko: " << duration.count()  * 1e-9 << "s\n";
+    cout << "Studentu rusiavimas i 2 kategorijas uztruko: " << duration.count()  * 1e-9 << " \n";
     
     start = high_resolution_clock::now(); 
     write_students("kietiakai.txt", arr, kietiakai);
     write_students("vargsiukai.txt", arr, vargsiukai);
     stop = high_resolution_clock::now();
     duration = duration_cast<nanoseconds>(stop - start);
-    cout << "Surusiotu studentu isvedimas i 2 failus uztruko: " << duration.count()  * 1e-9 << "s\n";
+    cout << "Surusiotu studentu isvedimas i 2 failus uztruko: " << duration.count()  * 1e-9 << " \n";
 
     // cout << "Studentai surusiuoti i falus kietiakai.txt ir vargsiukai.txt\n";
 }
