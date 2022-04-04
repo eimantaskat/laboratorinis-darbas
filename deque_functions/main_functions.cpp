@@ -75,42 +75,23 @@ void deque_student_sorting() {
         auto start = std::chrono::high_resolution_clock::now();
         read_data(arr, filename);
 
-        // cout << "Pagal ka norite rusiuoti studentus?\n1. Varda\n2. Pavarde\n";
-
-        // while (true) {
-        //     string select;
-        //     cin >> select;
-        //     if(!check_select(select)) {
-        //         cout << "Iveskite 1 arba 2" << endl;
-        //     } else {
-        //         int s = stoi(select);
-                
-        //         auto start = std::chrono::high_resolution_clock::now();
-        //         switch (s) {
-        //         case 1:
-        //             std::sort(arr.begin(), arr.end(), compareByName);
-        //             break;
-                
-        //         case 2:
-        //             std::sort(arr.begin(), arr.end(), compareBySurname);
-        //             break;
-        //         }
-        //         auto stop = std::chrono::high_resolution_clock::now();
-        //         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
-        //         cout << "Studentu rusiavimas pagal vardus uztruko: " << duration.count() * 1e-9 << " \n";
-        //         break;
-        //     }
-        // }
-
         auto pause = std::chrono::high_resolution_clock::now();
         auto cont = std::chrono::high_resolution_clock::now();
         if (arr.size() > 0) {
+            auto start5 = std::chrono::high_resolution_clock::now();
+
+            std::sort(arr.begin(), arr.end(), compareByName);
+
+            auto stop5 = std::chrono::high_resolution_clock::now();
+            auto duration5 = std::chrono::duration_cast<std::chrono::nanoseconds>(stop5 - start5);
+            cout << "Studentu rusiavimas pagal vardus uztruko: " << duration5.count() * 1e-9 << " \n";
+    
             // ask user how to calculate final grade
-            cout << "Pagal ka norite skaiciuoti galutini bala?\n1. Vidurki\n2. Mediana\n";
-            string select;
+            // cout << "Pagal ka norite skaiciuoti galutini bala?\n1. Vidurki\n2. Mediana\n";
+            string select = "1";
 
             while (true) {
-                cin >> select;
+                // cin >> select;
 
                 if(!check_select(select)) {
                     cout << "Iveskite 1 arba 2" << endl;

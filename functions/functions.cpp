@@ -86,4 +86,8 @@ void split(vector<data> arr, double (*func)(vector<int>)) {
     duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
     cout << "Vargsiuku ir kietiaku rasymas i failus uztruko: " << duration.count() * 1e-9 << "s\n";
     // cout << "Studentai surusiuoti i falus kietiakai.txt ir vargsiukai.txt\n";
+
+    arr.clear();
+    vargsiukai.clear();
+    kietiakai.clear();
 }
