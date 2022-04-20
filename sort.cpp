@@ -1,11 +1,11 @@
-#include "../functions.h"
+#include "functions.h"
 
 // sorting algorythms
 // sort grades
 void quick_sort(vector<int>& array, int first, int last) {
     if (first < last) {
         // find pivot element that all smaller elements are on the left, greater on the right
-        
+
         // select last element as pivot
         int pivot = array[last];
 
@@ -16,7 +16,7 @@ void quick_sort(vector<int>& array, int first, int last) {
         for (int j = first; j < last; j++) {
             // if element smaller than pivot is found, swap it with greater element
             if (array[j] <= pivot) {
-                int tmp =  array[i];
+                int tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
 
@@ -26,7 +26,7 @@ void quick_sort(vector<int>& array, int first, int last) {
         }
 
         // swap pivot with greater element
-        int tmp =  array[i];
+        int tmp = array[i];
         array[i] = array[last];
         array[last] = tmp;
 
@@ -40,7 +40,7 @@ void quick_sort(vector<int>& array, int first, int last) {
 void quick_sort(vector<data>& array, int first, int last) {
     if (first < last) {
         // find pivot element that all smaller elements are on the left, greater on the right
-        
+
         // select last element as pivot
         string pivot = array[last].name + array[last].surname;
 
@@ -50,8 +50,8 @@ void quick_sort(vector<data>& array, int first, int last) {
         // compare every element of array with pivot
         for (int j = first; j < last; j++) {
             // if element smaller than pivot is found, swap it with greater element
-            if (array[j].name+array[j].surname <= pivot) {
-                data tmp =  array[i];
+            if (array[j].name + array[j].surname <= pivot) {
+                data tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
 
@@ -61,7 +61,7 @@ void quick_sort(vector<data>& array, int first, int last) {
         }
 
         // swap pivot with greater element
-        data tmp =  array[i];
+        data tmp = array[i];
         array[i] = array[last];
         array[last] = tmp;
 

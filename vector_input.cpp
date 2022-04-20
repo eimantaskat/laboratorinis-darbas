@@ -1,24 +1,26 @@
-#include "../functions.h"
+#include "functions.h"
 
 // funtion to input homework grades
-void input_grades(list<int>& grades) {
+void input_grades(vector<int>& grades) {
     cout << "Iveskite namu darbu rezultatus, norint baigti, iveskite 0: " << endl;
     string input;
     int number = 10;
-    while(true) {
+    while (true) {
         // input and verify grade
         cout << grades.size() + 1 << " pazymys: ";
-        if(cin >> input) {
-            if(!is_grade(input)) {
+        if (cin >> input) {
+            if (!is_grade(input)) {
                 cout << "Pazymys turi buti sveikasis skaicius nuo 1 iki 10" << endl;
-            } else {
+            }
+            else {
                 number = stoi(input);
-                if(number < 0 || number > 10) {
+                if (number < 0 || number > 10) {
                     cout << "Pazymys turi buti sveikasis skaicius nuo 1 iki 10" << endl;
-                } else {
+                }
+                else {
                     // if input is 0 break the loop 
                     // else add grade to an array
-                    if(number == 0)
+                    if (number == 0)
                         break;
                     grades.push_back(number);
                 }
@@ -28,29 +30,31 @@ void input_grades(list<int>& grades) {
 }
 
 // function to input data
-void input_data(list<data>& arr) {
+void input_data(vector<data>& arr) {
     int i = 0;
     while (true) {
         // add new element to an array
-        data tmp;
+        arr.push_back(data());
 
         // input and verify name
         cout << "Vardas: ";
         string name;
-        while(true) {
+        while (true) {
             cin >> name;
-            if(!check_name(name)) {
+            if (!check_name(name)) {
                 cout << "Ar " << name << " tikrai yra mokinio vardas? (y/n): ";
                 char confirm;
                 cin >> confirm;
-                if(confirm == 'y') {
-                    tmp.name = name;
+                if (confirm == 'y') {
+                    arr[i].name = name;
                     break;
-                } else {
+                }
+                else {
                     cout << "Vardas: ";
                 }
-            } else {
-                tmp.name = name;
+            }
+            else {
+                arr[i].name = name;
                 break;
             }
         }
@@ -58,20 +62,22 @@ void input_data(list<data>& arr) {
         // input and verify surname
         cout << "Pavarde: ";
         string surname;
-        while(true) {
+        while (true) {
             cin >> surname;
-            if(!check_name(surname)) {
+            if (!check_name(surname)) {
                 cout << "Ar " << surname << " tikrai yra mokinio pavarde? (y/n): ";
                 char confirm;
                 cin >> confirm;
-                if(confirm == 'y') {
-                    tmp.surname = surname;
+                if (confirm == 'y') {
+                    arr[i].surname = surname;
                     break;
-                } else {
+                }
+                else {
                     cout << "Pavarde: ";
                 }
-            } else {
-               tmp.surname = surname;
+            }
+            else {
+                arr[i].surname = surname;
                 break;
             }
         }
@@ -79,64 +85,65 @@ void input_data(list<data>& arr) {
         char random;
         cout << "Ar norite sugeneruoti atsitiktinius balus uz namu darbus ir egzamina? (y/n): ";
         cin >> random;
-        if(random == 'y') {
+        if (random == 'y') {
             // intitialise random number generator
             srand(time(NULL));
 
             // generate exam result
-            tmp.exam = 1 + rand() % 10;
-            
+            arr[i].exam = 1 + rand() % 10;
+
             // ask how many grades to generate
             int n;
             cout << "Kiek norite sugeneruoti namu darbu pazymiu? ";
-            while(!(cin >> n)) {
+            while (!(cin >> n)) {
                 cout << "Iveskite sveikaji skaiciu \n";
                 cin.clear();
                 cin.ignore(256, '\n');
             }
-            
-            // generate array of random grades
-            for(int j = 0; j < n; j++) {
-                tmp.grades.push_back(1 + rand() % 10);
-            }
-            arr.push_back(tmp);
 
-        } else {
+            // generate array of random grades
+            for (int j = 0; j < n; j++) {
+                arr[i].grades.push_back(1 + rand() % 10);
+            }
+
+        }
+        else {
             // input and verify exam result
             string exam;
-            while(true) {
+            while (true) {
                 cout << "Egzamino rezultatas: ";
                 cin >> exam;
-                if(!is_grade(exam)) {
+                if (!is_grade(exam)) {
                     cout << "Pazymys turi buti sveikasis skaicius nuo 1 iki 10" << endl;
-                } else {
+                }
+                else {
                     int number = stoi(exam);
-                    if(number <= 0 || number > 10) {
+                    if (number <= 0 || number > 10) {
                         cout << "Pazymys turi buti sveikasis skaicius nuo 1 iki 10" << endl;
-                    } else {
-                        tmp.exam = number;
+                    }
+                    else {
+                        arr[i].exam = number;
                         break;
                     }
                 }
             }
 
             // input homework grades
-            input_grades(tmp.grades);
-            arr.push_back(tmp);
+            input_grades(arr[i].grades);
         }
         i++;
         // add more students or stop
         char add_more;
         cout << "Ar norite prideti dar vieno mokinio duomenis? (y/n): ";
         cin >> add_more;
-        if(add_more != 'y') {
+        if (add_more != 'y') {
             break;
         }
     }
 }
 
 // function to read data from file
-void read_data(list<data>& arr, string filename) {
+void read_data(vector<data>& arr, string filename) {
     try {
         auto start = std::chrono::high_resolution_clock::now();
         std::stringstream buffer;
@@ -155,6 +162,7 @@ void read_data(list<data>& arr, string filename) {
         start = std::chrono::high_resolution_clock::now();
         int lines_count = 0;
         string line;
+
         while (getline(buffer, line)) {
             lines_count++;
         }
@@ -167,7 +175,8 @@ void read_data(list<data>& arr, string filename) {
         buffer.seekg(0, std::ios::beg);
 
         // read file header
-        list<string> header;
+        vector<string> header;
+        header.reserve(4);
         while (buffer.peek() != '\n') {
             string data;
             buffer >> data;
@@ -178,17 +187,18 @@ void read_data(list<data>& arr, string filename) {
         int homework_count = header.size() - 3;
         header.clear();
 
+        arr.reserve(lines_count - 1);
+
         // read data
         int i = 0;
         while (!buffer.eof()) {
-            data tmp;
-            buffer >> tmp.name >> tmp.surname;
+            arr.push_back(data());
+            buffer >> arr[i].name >> arr[i].surname;
             for (int j = 0; j < homework_count; j++) {
-                tmp.grades.push_back(int());
-                buffer >> tmp.grades[j];
+                arr[i].grades.push_back(int());
+                buffer >> arr[i].grades[j];
             }
-            buffer >> tmp.exam;
-            arr.push_back(tmp);
+            buffer >> arr[i].exam;
             if (i > lines_count) {
                 throw(2);
             }
